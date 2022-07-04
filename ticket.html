@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>fligh-booking</title>
+    <link href="CSS/ticketstyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+
+
+<div class="background-logo">
+​<div id="move">
+          ​<img id="plane" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Plane_icon.svg">
+        </div>
+        <div class="earthdiv"> 
+          <img id="earth" src="https://upload.wikimedia.org/wikipedia/commons/7/71/Earth_icon_2.png">
+          </div>
+</div>
+
+    
+<!-- Header Section -->
+    
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar"> 
+                <div class="brand">
+                   <a href="index.html"><img src= "/images/logoheader.png" class = "logo"></a>
+                  <h1>Design & Fly</h1>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger"><div class="bar"></div></div>
+                    <ul>
+                      <li><a href="index.html" data-after="Home">Home</a></li>
+                        <li><a href="/ticket.html" data-after="Booking" class="current">Booking</a></li>
+                        <li><a href="/contact.html" data-after="Contact" >Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Mobile Form -->
+    <div class="mobile-form-container">
+        <i onclick="displayForm()" class="fa-solid fa-square-caret-down"></i>
+    <div class="mobile-form">
+      <div class="mobile-design-row">
+      <button onclick="changeColorTop()" class="destination-btn">Color Top</button>
+      <button onclick="changeImage()" class="destination-btn">Image</button>
+      <button onclick="changeColorBot()" class="destination-btn" >Color Bot</button>
+      </div>
+      <input id="first-name-input" class="form-top" type="text" placeholder="Enter your first name...">
+      <input id="last-name-input" class="form-top" type="text" placeholder="Enter your last name...">
+      
+      
+      <select class="form-top" id="destination">
+        <option hidden>Choose your destination...</option>
+        <option>London</option>
+        <option>Paris</option>
+        <option>Tokyo</option>
+        <option>Berlin</option>
+        <option>Bratislava</option>
+        <option>Cairo</option>
+      </select>
+      
+      <button onclick="displayDetails()" type="submit" class="destination-btn" id="destination-btn">Create!</button>
+      <i onclick="displayForm()" class="fa-solid fa-square-caret-up"></i>
+    </div>
+    </div>
+<!-- Main content ticket front and back (desktop and mobile) -->
+    
+    
+    <div class="container-main-desktop">
+    
+      <div class="ticket-config">
+        <input class="form-top"  type="text" placeholder="Enter your first name...">
+        <input class="form-top"  type="text" placeholder="Enter your last name...">
+        <select class="form-top" id="destination">
+          <option id="destination" id="enter-destination" hidden>Choose your destination...</option>
+          <option>London</option>
+          <option>Paris</option>
+          <option>Tokyo</option>
+          <option>Berlin</option>
+          <option>Bratislava</option>
+          <option>Cairo</option>
+        </select>
+        <button onclick="displayDetailsDesktop()" type="submit" id="effekt2"  class="go-btn">GO!</button>
+        <a href="/ticket.html"><img class="reload-img"  src="images/logoreload.png"></a>
+      </div>
+      
+      <div class="ticket-front" id="effekt">
+      
+        <div class="ticket-top">
+          <img class="logoplaneticket" src="/images/logoplaneticket.png" alt="">
+          <p class="ticket-front-header">Design Airline</p>
+        </div>
+      
+        <div class="ticket-mid-front">
+          <div>
+            <img class="barcode-img" src="/images/logoticketscan.png" alt="">
+          </div>
+        
+          <div class="container-ticket-form">
+            <div class="passenger-name">Passenger name</div>
+            <div class="date">Date</div>
+            <div id="gray-background" class="name form-output"></div>
+            <div class="from">From</div>
+            <div id="gray-background" class="country"></div>
+            <div class="to">To</div>
+            <div id="gray-background" class="destination destination-output"></div>
+            <div class="gate">Gate</div>
+            <div id="gray-background" class="gate-number"></div>
+            <div id="gray-background" class="flight-number"></div>
+            <div class="flight">Flight</div>
+            <div id="gray-background" class="date-number"></div>
+            <div class="time">Time</div>
+            <div id="gray-background" class="time-number"></div>
+            <div class="seat">Seat</div>
+            <div id="gray-background" class="seat-number"></div>
+            <div class="boarding">Boarding till</div> 
+            <div id="gray-background" class="boarding-number"></div>
+          </div>
+          
+          <div class="container-ticket-form2">
+            <div class="a">Passenger name</div>
+            <div id="gray-background" class="b form-output"></div>
+            <div class="c">From</div>
+            <div id="gray-background" class="d"></div>
+            <div class="f">To</div>
+            <div id="gray-background" class="g destination-output"></div>
+            <div class="h">Date</div>
+            <div class="i">Time</div>
+            <div class="j">Flight</div>
+            <div id="gray-background" class="k"></div>
+            <div id="gray-background" class="l"></div>
+            <div id="gray-background" class="m"></div>
+            <div class="n">Seat</div>
+            <div class="o">Gate</div>
+            <div id="gray-background" class="p"></div>
+            <div id="gray-background" class="q"></div>
+          </div>
+        </div>
+
+        <div class="ticket-bot" id="cb1"></div>
+    
+      </div>
+    
+      
+<!-- Buttons for designing the tickets -->
+      
+      <div class="design-btn-row">
+        <button id="effekt2" onclick="changeImage()" class="design-btn-lr" >Image</button>
+        <button id="effekt2" onclick="changeColorTop()" class="design-btn-lr" >Color Top</button>
+        <button id="effekt2" onclick="changeColorBot()" class="design-btn-lr">Color Bottom </button>
+        <button id="effekt2" onclick="btnSlide()" class="design-btn">Design</button>
+        <button id="effekt2" onclick="changeQuote()" class="design-btn-lr">Quote</button>
+        <button id="effekt2" onclick="changeFont()" class="design-btn-lr">Font</button>
+        <button id="effekt2" onclick="changeLayout()" class="design-btn-lr">Layout</button>
+      </div>
+    
+      
+      <div class="ticket-back" id="effekt">
+        <div class="ticket-top">
+            <p class="ticket-back-header">Have a wonderful time in <span id="welcome-message">Tokyo! Tanoshinde!</span</p>
+        </div>
+        <div class="ticket-mid-back">
+            <div class="quote-div">
+            <p class="quote-text">There are no short cuts to any place worth going.</p>
+            <p class="quote-author">-Unknown</p></div>
+        </div>
+      
+      <div class="ticket-bot" id="cb1"></div>
+    
+      </div>
+
+<!-- Ticket front mobile -->
+      
+    <div class="ticket-front-mobile">
+      
+      <div class="ticket-top">
+          <img class="logoplaneticket" src="/images/logoplaneticket.png" alt="">
+          <p class="ticket-front-header">Design Airline</p>
+      </div>
+      
+      <div class="ticket-mid-front">
+        <div class="container-ticket-form">
+          <div class="passenger-name grid-label">Passenger name</div>
+          <div class="date1 grid-label">Date</div>
+          <div class="date2 grid-label">Date</div>
+          <div id="passenger-name-ticket" class="name grid-input form-output"></div>
+          <div class="from grid-label">From</div>
+          <div class="country grid-input">Home</div>
+          <div class="to grid-label">To</div>
+          <div id="destination-ticket" class="destination grid-input destination-output"></div>
+          <div class="gate grid-label">Gate</div>
+          <div class="gate-number grid-input">B42</div>
+          <div class="flight-number grid-input">A 1034</div>
+          <div class="flight grid-label">Flight</div>
+          <div class="date-number1 grid-input">11.8.2022</div>
+          <div class="date-number2 grid-input">11.8.2022</div>
+          <div class="time1 grid-label">Time</div>
+          <div class="time2 grid-label">Time</div>
+          <div class="time-number1 grid-input">10:30</div>
+          <div class="time-number2 grid-input">18:40</div>
+          <div class="seat grid-label">Seat</div>
+          <div class="seat-number grid-input">39F</div>
+          <div class="boarding grid-label">Boarding till</div>
+          <div class="boarding-number grid-input">11:30</div>
+        </div>
+      </div>
+      <div class="qr-code">
+        <img src="/images/QRcode.png" alt="" width="150vw">
+      </div>
+
+      <div class="ticket-bot" id="cb1"></div>
+    </div>
+     
+<!-- Button before footer (desktop) -->  
+      
+      <div class="logo-download-desktop">
+       <img onclick="createPDFfromHTML()" src="/images/logodownload.png">
+     </div>
+    
+    
+    </div>
+    
+<!-- Button before footer (mobile)  -->
+    
+    <div class="mobile-refresh">
+      <img onclick="changeQuote()" src="images/logoreload.png" width="55px" height="55px" alt="">
+      <img onclick="createPDFfromHTML()" src="/images/logodownload.png" alt="">
+    </div>
+
+<!-- Footer desktop and mobile -->
+    
+    <div class="ticket-footer">
+      <p>Design & Fly</p>
+      <p>Copyright © 2022</p>
+    </div>
+
+<!-- Javascript -->
+    
+    <script src="/JAVASCRIPT/script.js"></script>
+    <script src="dom-to-image.min.js"></script>
+    <script src="FileSaver.js"></script>
+  
+</body>
+</html>
+
+
+
+
+
+<!-- OLD HEADER SECTION -->
+
+   <!-- <div class="ticket-header">
+      <div class="header-left">
+        ​<div id="move">
+          ​<img id="plane" src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Plane_icon.svg">
+        </div>
+        <div class="earthdiv"> 
+          <img id="earth" src="https://upload.wikimedia.org/wikipedia/commons/7/71/Earth_icon_2.png">
+          </div>
+      <p class="header-h">Design and Fly!</p>
+      </div>
+      <div class="header-right">
+      <a href="/ticket.html" class="header-ticket">Ticket Booking</a>
+      <a href="/contact.html" class="header-contact">Contact Us</a>
+      </div>
+      <div class="mobile-menu">
+        <input type="checkbox" class="openSidebarMenu" id="openSidebarMenu">
+        <label for="openSidebarMenu" class="sidebarIconToggle">
+          <div class="spinner diagonal part-1"></div>
+          <div class="spinner horizontal"></div>
+          <div class="spinner diagonal part-2"></div>
+        </label>
+        <div id="sidebarMenu">
+          <ul class="sidebarMenuInner">
+            <li><a href="#" target="_blank">Home</a></li>
+            <li><a href="#" target="_blank">Ticket booking</a></li>
+            <li><a href="#" target="_blank">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+-->
